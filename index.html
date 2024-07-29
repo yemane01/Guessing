@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang = "en">
 <head>
-    <meta charset="utf-8">
-    <title>Number Guessing Game</title>
- 
+<meta charset="utf-8">
+<meta name= Yemane Teame content "Autor">
+<title>Guessing Game</title>
+<link href="/css/style5.css" rel="stylesheet" type="text/css">
+ </head>
     <style>
         body {
             font-family: sans-serif;
@@ -13,57 +15,39 @@
             margin: 0 auto;
         }
     </style>
-</head>
- 
+
 <body>
-    <h1>Guess The Number</h1>
-    <p>
-        We have selected a random number 
-        between 1 - 10. See if you can
-        guess it.
-    </p>
- 
-    <div class="form">
-        <label for="guessField">
-            Enter a guess: 
-        </label>
-         
-        <input type="text" id="guessField"
-            class="guessField">
-         
-        <input type="submit" value="Submit guess"
-            class="guessSubmit" id="submitguess">
-    </div>
- 
-    <script type="text/javascript">
- 
-        // Generate a Random Number
-        let y = Math.floor(Math.random() * 10 + 1);
- 
-        // Counting the number of guesses
-        // made for correct Guess
-        let guess = 1;
- 
-        document.getElementById("submitguess").onclick = function () {
- 
-            // Number guessed by user    
-            let x = document.getElementById("guessField").value;
- 
-            if (x == y) {
-                alert("CONGRATULATIONS!!! YOU GUESSED IT RIGHT IN "
-                    + guess + " GUESS ");
-            }
- 
-            /* If guessed number is greater than actual number*/
-            else if (x > y) {
-                guess++;
-                alert("OOPS SORRY!! TRY A SMALLER NUMBER");
-            }
-            else {
-                guess++;
-                alert("OOPS SORRY!! TRY A GREATER NUMBER")
-            }
-        }
-    </script>
+    
+<p id="result"></p>
+
+<script type="text/javascript">
+
+var randomNumber = Math.floor(Math.random() * 10) + 1;	
+let guesses = 1;
+   
+var userNum = prompt("Guess a number between 1 and 10:");
+
+  
+  if (userNum == randomNumber) {
+    guesses++;
+    console.log("You guessed it in "+guesses+" guesses!");
+    document.getElementById('result').innerHTML = "You guessed it in " + guesses+ " guesses!";
+   } 
+  
+   else if (userNum > randomNumber) {
+    guesses++;
+    console.log("Your guess was too high, guess again.");
+    document.getElementById('result').innerHTML = "Your guess was too high, guess again.";
+    
+  }
+  
+  else {
+    console.log("Your guess was too low, guess again.");
+    document.getElementById('result').innerHTML = "Your guess was too low, guess again.";
+    
+}
+    
+
+</script>
 </body>
 </html>
